@@ -1,6 +1,7 @@
 package com.motel.motelreservationbackend.controller;
 
 import com.motel.motelreservationbackend.model.Room;
+import com.motel.motelreservationbackend.model.request.ReservationDates;
 import com.motel.motelreservationbackend.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,4 +32,8 @@ public class RoomController {
     }
 
     //TODO: Implement getAvailable endpoint
+    @GetMapping("/getAvailable")
+    public List<Room> getAvailable(@RequestBody ReservationDates dates){
+        return roomService.getAvailableRooms(dates);
+    }
 }

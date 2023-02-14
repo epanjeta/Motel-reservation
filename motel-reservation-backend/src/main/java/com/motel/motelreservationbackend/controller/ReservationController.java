@@ -29,7 +29,6 @@ public class ReservationController {
         return reservationService.getAll();
     }
 
-    //todo: pretovoriti iz json u date
     @GetMapping("/getOverlaps")
     public List<Reservation> getOverlaps(@RequestBody @DateTimeFormat(pattern = "dd.MM.yyyy") ReservationDates dates){
         return reservationService.getReservedDate(dates);

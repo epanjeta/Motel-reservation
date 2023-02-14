@@ -1,21 +1,78 @@
 package com.motel.motelreservationbackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Builder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
+import java.util.List;
+@Builder
 @Entity
-public class User {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String surname;
-    private String eMail;
+    private String email;
     private boolean staff;
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User() {
+    }
+
+    public User(int id, String name, String surname, String email, boolean staff, String password, Role role) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.staff = staff;
+        this.password = password;
+        this.role = role;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {
@@ -42,12 +99,12 @@ public class User {
         this.surname = surname;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEmail() {
+        return email;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEmail(String eMail) {
+        this.email = eMail;
     }
 
     public boolean isStaff() {
