@@ -5,6 +5,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import interiorImage from "./images/interior1.jpg";
 import exteriorImage from "./images/exterior.jpg";
 import Home from './components/Home';
+import Rooms from './components/Rooms';
+import Booking from './components/Booking';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <div>
             <Routes>
               <Route exact path="/" element={<Home/>}></Route>
+              <Route exact path="/Rooms" element={<Rooms/>}></Route>
+              <Route exact path="/Book" element={<Booking/>}></Route>
             </Routes>
         </div>
       </Router>

@@ -7,6 +7,10 @@ function Home(){
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
+    function handleSubmit(){
+        console.log("Submitovano")
+    }
+
     return(
         <div
         className='p-5 text-center bg-image '
@@ -19,7 +23,7 @@ function Home(){
                 <h1 className='mb-3'>MOTEL MONTANA</h1>
                 <h4 className='mb-3'>Be The One With The Mountain.</h4>
                 <br/>
-                <form class="form-inline" onsubmit="return checkForms();" method="GET" action="Home">
+                <form class="form-inline" method="GET" action="Rooms">
                   <div class="row mb-3">
                     <div class="col">
                     <div class="form-group mx-sm-3 mb-2">
@@ -34,7 +38,7 @@ function Home(){
                       </div>
                     </div>
                   </div>
-              <button type="submit" class="btn btn-outline-light btn-lg">Check Rooms</button>
+              <button class="btn btn-outline-light btn-lg" >Check Rooms</button>
             </form>
               </div>
             </div>
