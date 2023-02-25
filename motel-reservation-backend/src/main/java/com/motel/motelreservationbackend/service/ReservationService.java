@@ -13,4 +13,6 @@ public interface ReservationService {
     public List<Reservation> getAll();
 
     public List<Reservation> getReservedDate(ReservationDates dates);
+
+    public Reservation getReservation(int id);
 }

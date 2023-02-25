@@ -33,6 +33,15 @@ function Booking(){
         });
     }
 
+    function redirectToDetails(data){
+        navigate({
+            pathname: "/Reservation",
+            search: createSearchParams({
+                reservation: data.id
+            }).toString()
+        });
+    }
+
     function handleSubmit(){
 
         let data = {
@@ -51,13 +60,8 @@ function Booking(){
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-        }).then(
-            navigate({
-                pathname: "/Reservation"
-            })
-        );
-
-        
+        }).then(response => response.json())
+        .then(data => redirectToDetails(data));
     }
 
     return(

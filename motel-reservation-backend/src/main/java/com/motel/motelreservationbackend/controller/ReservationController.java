@@ -33,4 +33,9 @@ public class ReservationController {
     public List<Reservation> getOverlaps(@RequestBody @DateTimeFormat(pattern = "dd.MM.yyyy") ReservationDates dates){
         return reservationService.getReservedDate(dates);
     }
+
+    @GetMapping("/get")
+    public Reservation get(@RequestParam int id){
+        return reservationService.getReservation(id);
+    }
 }

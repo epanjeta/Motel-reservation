@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,5 +38,12 @@ public class ReservationServiceImpl implements ReservationService{
                 .collect(Collectors.toList());
         return overlaps;
         // (StartDate1 <= EndDate2) and (StartDate2 <= EndDate1)
+    }
+
+    @Override
+    public Reservation getReservation(int id) {
+        Optional<Reservation> reservation = reservationRepository.findById(id);
+        if(reservation.isPresent()) return reservation.get();
+        else return null;
     }
 }

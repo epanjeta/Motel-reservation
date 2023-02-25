@@ -28,6 +28,8 @@ public class Reservation {
     @JsonFormat(pattern="dd-MM-yyyy")
     private Date checkOutDate;
 
+    private String email;
+
     public Reservation() {
     }
 
@@ -41,6 +43,14 @@ public class Reservation {
 
     public int getRoomId() {
         return roomId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setRoomId(int roomId) {
