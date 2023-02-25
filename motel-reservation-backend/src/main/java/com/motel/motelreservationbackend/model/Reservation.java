@@ -16,7 +16,11 @@ public class Reservation {
 
     private int roomId;
 
-    private int userId;
+    private String firstName;
+
+    private String lastName;
+
+    private String phoneNumber;
 
     @JsonFormat(pattern="dd-MM-yyyy")
     private Date checkInDate;
@@ -43,12 +47,28 @@ public class Reservation {
         this.roomId = roomId;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Date getCheckInDate() {

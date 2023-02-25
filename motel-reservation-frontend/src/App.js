@@ -7,6 +7,7 @@ import exteriorImage from "./images/exterior.jpg";
 import Home from './components/Home';
 import Rooms from './components/Rooms';
 import Booking from './components/Booking';
+import ReservationDetails from './components/ReservationDetails';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route exact path="/" element={<Home/>}></Route>
               <Route exact path="/Rooms" element={<Rooms/>}></Route>
               <Route exact path="/Book" element={<Booking/>}></Route>
+              <Route exact path="/Reservation" element={<ReservationDetails/>}></Route>
             </Routes>
         </div>
       </Router>

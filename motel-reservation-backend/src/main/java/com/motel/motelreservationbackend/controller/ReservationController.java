@@ -19,9 +19,9 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @PostMapping("/make")
-    public String add(@RequestBody @DateTimeFormat(pattern = "dd.MM.yyyy") Reservation reservation){
-        reservationService.makeReservation(reservation);
-        return "Reservation added!";
+    public Reservation add(@RequestBody @DateTimeFormat(pattern = "dd.MM.yyyy") Reservation reservation){
+        Reservation reservation1 = reservationService.makeReservation(reservation);
+        return reservation1;
     }
 
     @GetMapping("/getAll")
