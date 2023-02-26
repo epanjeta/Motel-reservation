@@ -7,19 +7,14 @@ function Header() {
   return (
     <Navbar bg="dark" variant="dark" expand="md">
         <Container>  
-      <Navbar.Brand href="#home">Navbar Brand</Navbar.Brand>  
+      <Navbar.Brand href="/">Motel Montana</Navbar.Brand>  
       <Navbar.Toggle aria-controls="basic-navbar-nav" />  
       <Navbar.Collapse id="basic-navbar-nav">  
         <Nav className="me-auto">  
-          <Nav.Link href="#home">Home</Nav.Link>  
-          <Nav.Link href="#link">Link</Nav.Link>  
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">  
-            <NavDropdown.Item href="#action/3.1">Dropdown Item 1</NavDropdown.Item>  
-            <NavDropdown.Item href="#action/3.2">Dropdown Item 2</NavDropdown.Item>  
-            <NavDropdown.Item href="#action/3.3">Dropdown Item 3</NavDropdown.Item>  
-            <NavDropdown.Divider />  
-            <NavDropdown.Item href="#action/3.4">Another Item</NavDropdown.Item>  
-          </NavDropdown>  
+          <Nav.Link href="/" exact activeClassName="active">Home</Nav.Link>  
+          <Nav.Link href="About" exact activeClassName="active">About Us</Nav.Link>
+          <Nav.Link href="Contact" exact activeClassName="active">Contact</Nav.Link>
+          <Nav.Link href="Login" exact activeClassName="active">Sign In</Nav.Link>  
         </Nav>  
       </Navbar.Collapse>  
     </Container>  

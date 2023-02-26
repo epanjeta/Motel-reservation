@@ -8,6 +8,9 @@ import Home from './components/Home';
 import Rooms from './components/Rooms';
 import Booking from './components/Booking';
 import ReservationDetails from './components/ReservationDetails';
+import AboutUs from './components/AboutUs';
+import Contact from './components/Contact';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
               <Route exact path="/Rooms" element={<Rooms/>}></Route>
               <Route exact path="/Book" element={<Booking/>}></Route>
               <Route exact path="/Reservation" element={<ReservationDetails/>}></Route>
+              <Route exact path="/About" element={<AboutUs/>}></Route>
+              <Route exact path="/Contact" element={<Contact/>}></Route>
+              <Route exact path="/Login" element={<Login/>}></Route>
             </Routes>
         </div>
       </Router>
