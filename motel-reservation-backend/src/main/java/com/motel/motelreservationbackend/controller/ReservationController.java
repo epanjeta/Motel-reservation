@@ -6,6 +6,9 @@ import com.motel.motelreservationbackend.model.request.ReservationDates;
 import com.motel.motelreservationbackend.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -35,7 +38,13 @@ public class ReservationController {
     }
 
     @GetMapping("/get")
-    public Reservation get(@RequestParam int id){
-        return reservationService.getReservation(id);
+    public ResponseEntity<Reservation> get(@RequestParam int id){
+        Reservation reservation = reservationService.getReservation(id);
+        if(reservation != null){
+            return new ResponseEntity<Reservation>(reservation, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
