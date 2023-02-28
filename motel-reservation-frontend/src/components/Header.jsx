@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { isLoggedIn } from '../utilities/UserUtility';
 
 function Header() {
   return (
@@ -14,7 +15,12 @@ function Header() {
           <Nav.Link href="/" exact activeClassName="active">Home</Nav.Link>  
           <Nav.Link href="About" exact activeClassName="active">About Us</Nav.Link>
           <Nav.Link href="Contact" exact activeClassName="active">Contact</Nav.Link>
-          <Nav.Link href="Login" exact activeClassName="active">Sign In</Nav.Link>  
+          {!isLoggedIn() && 
+            <Nav.Link href="Login" exact activeClassName="active">Sign In</Nav.Link>
+          }
+          {isLoggedIn() == true &&
+            <Nav.Link href="Logout" exact activeClassName="active">Logout</Nav.Link>
+          }
         </Nav>  
       </Navbar.Collapse>  
     </Container>  

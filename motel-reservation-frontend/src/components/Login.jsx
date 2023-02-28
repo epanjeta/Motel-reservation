@@ -1,13 +1,34 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { isLoggedIn } from "../utilities/UserUtility";
 
 function Login(){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
+
     function handleSubmit(){
         console.log(email);
         console.log(password);
+        let data = {
+            "email":email,
+            "password":password
+        }
+        fetch('http://localhost:8080/api/v1/auth/authenticate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+            localStorage.setItem('token', data.token);
+            navigate('/');
+            window.location.reload(true);
+        });
     }
 
     return(

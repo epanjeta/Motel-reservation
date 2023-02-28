@@ -11,6 +11,7 @@ import ReservationDetails from './components/ReservationDetails';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import Login from './components/Login';
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route exact path="/About" element={<AboutUs/>}></Route>
               <Route exact path="/Contact" element={<Contact/>}></Route>
               <Route exact path="/Login" element={<Login/>}></Route>
+              <Route exact path="/Logout" element={<Logout/>}></Route>
             </Routes>
         </div>
       </Router>
